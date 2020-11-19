@@ -1,0 +1,8 @@
+---
+title: "pages"
+author: "Theodore Landsman"
+date: "11/18/2020"
+output: html_document
+---
+
+Blahblahblah
