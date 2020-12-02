@@ -4,4 +4,4 @@ indexing stuff
 # Navigation 
 *[Home](https://theolandsman.github.io/ppol-final-project/)
 
-*[page1](https://theolandsman.github.io/ppol-final-project/pages)
+*[Cluster and PCA analysis](https://theolandsman.github.io/ppol-final-project/ppol670_final_proj.html)
