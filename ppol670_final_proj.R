@@ -2,18 +2,22 @@ library(tidyverse)
 library(readxl)
 library(smacof)
 library(ggplot2)
-AlaskaCVR <- read_excel("~/Documents/AlaskaCVR.xlsx", na = "under")
 wyoming <- read_csv("~/Documents/Wyoming data import.csv")
+AlaskaCVR <- read_excel("~/Documents/AlaskaCVR.xlsx", na = "under")
 
+names<-colnames(wyoming)
+names[6:10]<- c(1,2,3,4,5)
+colnames(wyoming) <- names
 wyoming_l <- wyoming %>%
-  select(BallotID, `1st` ,`2nd` ,`3rd` ,`4th`, `5th` ) %>%
+  select(BallotID, `1` ,`2` ,`3` ,`4`, `5` ) %>%
   pivot_longer(-BallotID, names_to = 'rank', values_to = "candidate") %>%
   filter(!candidate %in% c('under','over')) %>%
   pivot_wider(names_from = candidate, values_from = rank, values_fn = first)
 
+
 ### Data Preprocessing
 
-w_matrix <- wyoming[,11:18]
+w_matrix <- wyoming[,2:10]
 # Impute missing values
 rec <- recipe( ~ ., data = w_matrix)
 pca_rcv <- rec %>%
